@@ -1,0 +1,35 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px black solid;
+    margin: 0 auto;
+    width: 60%;
+align-items: center;}
+.container{
+    display: flex;
+    margin: 0 auto;
+    width: 60%;
+    justify-content: space-between;
+}
+.regester{
+    border: 1px black solid;
+    padding: 16px;
+    margin-top: 20px;
+}
+.regester table{
+    padding: 20px;
+}
+
+.login{
+    border: 1px black solid;
+    padding: 16px;
+    margin-top: 20px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.red{
+    color: red;
+}
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>User Reviews</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/user_info.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <a href="/books">Home</a>
+                <a href="/books/addbook">Add Book and Review</a>
+                <a href="/logout">Logout</a>
+            </div>
+            <div class="user_info">
+                <h3><span class="label">Alias:</span> {{ user.alias }}</h3>
+                <h3><span class="label">Name :</span> {{ user.name }}</h3>
+                <h3><span class="label">Email :</span> {{ user.email }}</h3>
+                <h3><span class="label">Total Reviews :</span> {{ total_review }}</h3>
+            </div>
+            <div class="reviews">
+                <h3>Posted Reviews on the follwing books</h3>
+                {% if reviews %}
+                    {% for review in reviews %}
+                        <p><a href="/books/{{ review.book.id }}">{{ review.book.title }}</a></p>
+                        <form action="/users/{{review.user.id}}/delete" method="post"></form>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+.header {
+    text-align: right;
+    padding: 10px 50px;
+}
+
+.checked {
+    color: orange;
+}
+.content{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 50px;
+    padding: 30px;
+    width: 1050px;
+}
+
+.header a{
+    margin: 0px 20px;
+}
+
+.header {
+    padding: 0px 30px;
+    text-align: right;
+}
+
+.review {
+    display: inline-block;
+}
+
+.review_part {
+    width: 45%;
+}
+
+.add_review_part {
+    vertical-align: top;
+    width: 45%;
+    margin: 100px 0px;
+}

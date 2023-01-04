@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Reads</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bookstyle.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p>Welcome {{user.name}}</p>
+            <a href="/logout">Logout</a>
+            <a href="/books/addbook">Add book and Review</a>
+        </div>
+        <div class="review inline_box">
+            <h4>Recent Book Reviews:</h4>
+            {% for review in reviews %}
+                <a href="/books/{{ review.book.id }}"><h2>{{ review.book.title }}</h2></a>
+                <p>Rating : {{ review.rating }}</p>
+                <p><a href="/users/{{ review.user.id }}">{{ review.user.name }}</a> says : {{ review.review }}</p>
+                <p>Posed on {{ review.created_at }}</p>
+                {% if review.user.id == user.id %}
+                <a href="/books/{{review.id}}/delete">Delete this review</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="other_book inline_box">
+            <p>Other Books with Reivews:</p>
+            {% for book in books %}
+                <a href="/books/{{ book.id }}"><p>{{book.title}} reviews : {{book.book_reviews.all.count}} </p></a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

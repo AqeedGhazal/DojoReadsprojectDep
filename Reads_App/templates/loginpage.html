@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Reads</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="nav">
+        <h3>Welcome to Dojo Reads</h3>
+    </div>
+    <div class="container">
+        <div class="regester">
+            <div class="messages">
+                {% if messages %}
+                <ul class="messages">    
+                {% for message in messages %}    
+                    <li class="red" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+                <h1>Register</h1>
+                <form action="/register" method="post">
+                {% csrf_token %}
+                    <table id="content">
+                        <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td> <input type="text" name="register-username"></td>
+                            </tr>
+                            <tr>
+                                <td>Alice</td>
+                                <td> <input type="text" name="useralice" ></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td><input type="email" name="regesterd-useremail"></td>
+                            </tr>
+                            <tr>
+                                <td>password</td>
+                                <td> <input type="password" name="regesterd-userpassword"></td>
+                            </tr>
+                            <tr>
+                                <td> Confirm Password </td>
+                                <td><input type="password" name="regesterd-C-userpassword"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <input type="submit" value="Register"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <div class="login">
+                <form action="/login" method="post">
+                    {% csrf_token %}
+                    <h1>Login</h1>
+                        <table id="content">
+                            <tbody>
+                                <tr>
+                                    <td>Email</td>
+                                    <td> <input type="email" name="login-useremail"></td>
+                                </tr>
+                                <tr>
+                                    <td>password</td>
+                                    <td> <input type="password" name="login-userpassword" ></td>
+                                </tr>
+                                <tr>
+                                    <td> </td>
+                                    <td><input type="submit" value="Login"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </form>
+            </div>
+        </div>
+</body>
+</html>
